@@ -24,7 +24,7 @@ import org.apache.camel.health.HealthCheckRegistry;
 import org.apache.camel.impl.health.ConsumersHealthCheckRepository;
 import org.apache.camel.impl.health.ContextHealthCheck;
 import org.apache.camel.impl.health.RoutesHealthCheckRepository;
-import org.apache.camel.microprofile.health.CamelMicroProfileHealthCheckRegistry;
+import org.apache.camel.quarkus.component.microprofile.health.runtime.CamelQuarkusMicroProfileHealthCheckRegistry;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.jupiter.api.Test;
@@ -47,7 +47,7 @@ public class MicroProfileHealthEnabledTest {
     public void healthCheckRegistryNotNull() {
         HealthCheckRegistry registry = HealthCheckRegistry.get(context);
         assertNotNull(registry);
-        assertTrue(registry instanceof CamelMicroProfileHealthCheckRegistry);
+        assertTrue(registry instanceof CamelQuarkusMicroProfileHealthCheckRegistry);
         assertEquals("camel-microprofile-health", registry.getId());
     }
 
